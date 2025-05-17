@@ -18,15 +18,15 @@ bool verificaAdjacentes(char board[3][4], int i, int j, int wordIndex, char* wor
         printf("%c", board[i+1][j]);
         achou = verificaAdjacentes(board, i+1, j, (wordIndex + 1), word);
     }
-    if(board[i][j+1] == word[wordIndex]){
+    if(achou == false && board[i][j+1] == word[wordIndex]){
         printf("%c", board[i][j+1]);
         achou = verificaAdjacentes(board, i, j+1, (wordIndex + 1), word);
     }
-    if(board[i-1][j] == word[wordIndex]){
+    if(achou == false && board[i-1][j] == word[wordIndex]){
         printf("%c", board[i-1][j]);
         achou = verificaAdjacentes(board, i-1, j, (wordIndex + 1), word);
     }
-    if(board[i][j-1] == word[wordIndex]){
+    if(achou == false && board[i][j-1] == word[wordIndex]){
         printf("%c", board[i][j-1]);
         achou = verificaAdjacentes(board, i, j-1, (wordIndex + 1), word);
     }
@@ -55,7 +55,7 @@ bool exist(char board[3][4], int boardSize, int boardColSize, char* word) {
 void main(){
     char matrix[3][4] = {{'A','B','C','E'},{'S','F','C','S'},{'A','D','E','E'}};
     int matrixSize = sizeof(matrix) / sizeof(char);
-    char* word = "ABCCED";
+    char* word = "ABCB";
 
     bool existe = exist(matrix, 3, 4, word);
 
