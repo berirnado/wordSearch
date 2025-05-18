@@ -79,7 +79,26 @@ bool exist(char board[3][4], int boardSize, int boardColSize, char* word) {
 void main(){
     char matrix[3][4] = {{'A','B','C','E'},{'S','F','C','S'},{'A','D','E','E'}};
     int matrixSize = sizeof(matrix) / sizeof(char);
-    char* word = "ABCB";
+    int palavraEscolhida;
+    char* word;
+
+    printf("Qual palavra deseja testar?");
+    scanf("%d", &palavraEscolhida);
+    switch(palavraEscolhida){
+        case 1:
+            word = "ABCCED";
+            break;
+        case 2:
+            word = "SEE";
+            break;
+        case 3:
+            word = "ABCB";
+            break;
+        default:
+            printf("Número inválido.");
+            exit(0);
+            break;
+    }
 
     bool existe = exist(matrix, 3, 4, word);
 
